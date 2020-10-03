@@ -18,5 +18,13 @@
     <ClCompile Include="LibrarySystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cppFiles\Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hFiles\Date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

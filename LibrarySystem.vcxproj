@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cppFiles\Date.cpp" />
     <ClCompile Include="LibrarySystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hFiles\Date.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
