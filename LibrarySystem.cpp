@@ -4,58 +4,46 @@
 #include "hFiles/Member.h"
 #include "hFiles/Borrower.h"
 #include "hFiles/BookList.h"
+#include "hFiles/MemberList.h"
 
 using namespace std;
 
 int main()
 {
-	char n[100]; char isbn[16]; char a[50]; char p[50];
-	int pages;
-	Type cover;	char type[5];
-	BookList books;
+	char n[100]; char id[10]; char a[100];
+	MemberList members;
 
-	int numberOfBooks = 10;
+	int numberOfMembers = 5;
 
-	cout << "Adding " << numberOfBooks << " different books. then displaying ALL books together.\n";
+	cout << "Adding " << numberOfMembers << " different members. then displaying ALL members together.\n";
 
-	for (int i = 0; i < numberOfBooks; i++) {
-		cout << "enter book's name: ";	cin.getline(n, 100);
-		cout << "enter book's ISBN: ";	cin.getline(isbn, 16);
+	for (int i = 0; i < numberOfMembers; i++) {
+		cout << "enter member's name: ";	cin.getline(n, 100);
+		cout << "enter member's ID: ";	cin.getline(id, 10);
 
 		// Check if the book name/isbn already exists
-		if (books.searchByName(n, false) || books.searchByISBN(isbn, false)) {
-			cout << "Book already exists!\n\n";
+		if (members.searchByName(n, false) || members.searchByID(id, false)) {
+			cout << "Member already exists!\n\n";
 			i--;
 			continue;
 		}
 		// Continue adding that new book
-		cout << "enter author: ";	cin.getline(a, 50);
-		Date D;
-		cout << "enter date of publication (dd/mm/yy): ";	cin >> D;
-		cin.ignore();
-		cout << "enter publisher: ";	cin.getline(p, 50);
-		cout << "enter no. of pages: ";	cin >> pages;
-		cin.ignore();
-		cout << "enter cover type: "; cin.getline(type, 5);
-		if (strcmp(type, "soft") == 0)
-			cover = soft;
-		else
-			cover = hard;
+		cout << "enter address: ";	cin.getline(a, 100);
 
-		cout << "Adding this book and Saving ..." << endl;
-		books.addBook(n, isbn, a, D, p, pages, cover);
-		books.saveBook();
+		cout << "Adding this member and Saving ..." << endl;
+		members.addMember(id, n, a);
+		members.saveMember();
     }
 
-	books.displayList();
+	members.displayList();
 
-	cout << "\nSearch book ...\n";
-	cout << "enter book's ISBN: ";	cin.getline(isbn, 16);
-	books.displayBook(isbn);
-	books.searchByISBN(isbn);
+	cout << "\nSearch member ...\n";
+	cout << "enter member's ID: ";	cin.getline(id, 10);
+	members.displayMember(id);
+	members.searchByID(id);
 
-	cout << "enter book's Name: ";	cin.getline(n, 100);
-	books.searchByName(n);
+	cout << "enter member's Name: ";	cin.getline(n, 100);
+	members.searchByName(n);
     
     system("pause");
 }

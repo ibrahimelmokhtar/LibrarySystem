@@ -144,6 +144,7 @@
     <ClCompile Include="cppFiles\Borrower.cpp" />
     <ClCompile Include="cppFiles\Member.cpp" />
     <ClCompile Include="cppFiles\Date.cpp" />
+    <ClCompile Include="cppFiles\MemberList.cpp" />
     <ClCompile Include="LibrarySystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +153,7 @@
     <ClInclude Include="hFiles\Borrower.h" />
     <ClInclude Include="hFiles\Member.h" />
     <ClInclude Include="hFiles\Date.h" />
+    <ClInclude Include="hFiles\MemberList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
