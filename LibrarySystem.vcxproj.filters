@@ -30,6 +30,9 @@
     <ClCompile Include="cppFiles\Borrower.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cppFiles\BookList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hFiles\Date.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="hFiles\Borrower.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hFiles\BookList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
