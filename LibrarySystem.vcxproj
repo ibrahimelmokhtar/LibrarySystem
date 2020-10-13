@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cppFiles\Book.cpp" />
+    <ClCompile Include="cppFiles\Borrower.cpp" />
     <ClCompile Include="cppFiles\Member.cpp" />
     <ClCompile Include="cppFiles\Date.cpp" />
     <ClCompile Include="LibrarySystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hFiles\Book.h" />
+    <ClInclude Include="hFiles\Borrower.h" />
     <ClInclude Include="hFiles\Member.h" />
     <ClInclude Include="hFiles\Date.h" />
   </ItemGroup>
