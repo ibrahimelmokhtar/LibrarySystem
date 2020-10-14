@@ -142,6 +142,7 @@
     <ClCompile Include="cppFiles\Book.cpp" />
     <ClCompile Include="cppFiles\BookList.cpp" />
     <ClCompile Include="cppFiles\Borrower.cpp" />
+    <ClCompile Include="cppFiles\BorrowerList.cpp" />
     <ClCompile Include="cppFiles\Member.cpp" />
     <ClCompile Include="cppFiles\Date.cpp" />
     <ClCompile Include="cppFiles\MemberList.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="hFiles\Book.h" />
     <ClInclude Include="hFiles\BookList.h" />
     <ClInclude Include="hFiles\Borrower.h" />
+    <ClInclude Include="hFiles\BorrowerList.h" />
     <ClInclude Include="hFiles\Member.h" />
     <ClInclude Include="hFiles\Date.h" />
     <ClInclude Include="hFiles\MemberList.h" />

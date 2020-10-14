@@ -5,45 +5,81 @@
 #include "hFiles/Borrower.h"
 #include "hFiles/BookList.h"
 #include "hFiles/MemberList.h"
+#include "hFiles/BorrowerList.h"
 
 using namespace std;
 
 int main()
 {
-	char n[100]; char id[10]; char a[100];
+	// display members from Members.bin:
+	cout << "Members: \n";
 	MemberList members;
+	members.displayList();
+	cout << "\n\n";
 
-	int numberOfMembers = 5;
+	// display books from Books.bin:
+	cout << "Books: \n";
+	BookList books;
+	books.displayList();
+	cout << "\n\n";
 
-	cout << "Adding " << numberOfMembers << " different members. then displaying ALL members together.\n";
 
-	for (int i = 0; i < numberOfMembers; i++) {
+	char id[10]; char isbn[16];
+	char n[100]; char a[100];
+	Date bd;	Date rd;
+
+	BorrowerList borrowers;
+
+	int numberOfBorrowers = 2;
+
+	cout << "Adding " << numberOfBorrowers << " different borrowers. then displaying ALL borrowers together.\n";
+
+	for (int i = 0; i < numberOfBorrowers; i++) {
 		cout << "enter member's name: ";	cin.getline(n, 100);
 		cout << "enter member's ID: ";	cin.getline(id, 10);
+		cout << "enter address: ";	cin.getline(a, 100);
 
-		// Check if the book name/isbn already exists
-		if (members.searchByName(n, false) || members.searchByID(id, false)) {
-			cout << "Member already exists!\n\n";
+		// Check if that member's id already exists in Members.bin
+		if (!borrowers.checkID(id)) {
+			cout << "*** Invalid member!\n\n";
 			i--;
 			continue;
 		}
-		// Continue adding that new book
-		cout << "enter address: ";	cin.getline(a, 100);
 
-		cout << "Adding this member and Saving ..." << endl;
-		members.addMember(id, n, a);
-		members.saveMember();
+		cout << "enter book's ISBN: ";		cin.getline(isbn, 16);
+
+		// Check if that book's isbn already exists in Books.bin
+		if (!borrowers.checkISBN(isbn)) {
+			cout << "*** Invalid book!\n\n";
+			i--;
+			continue;
+		}
+
+		// Check if the borrower id already exists
+		// As every borrower has only one book to borrow at a time.
+		if (i > 0 && borrowers.searchByID(id, false)) {
+			cout << "Borrower already exists!\n\n";
+			i--;
+			continue;
+		}
+		
+		// Continue adding that new borrower
+		cout << "enter borrowing date (dd/mm/yy): ";	cin >> bd;
+		cin.ignore();
+		cout << "enter return date (dd/mm/yy): ";		cin >> rd;
+		cin.ignore();
+
+		cout << "Adding this borrower and Saving ...\n\n";
+		borrowers.addBorrower(id, n, a, isbn, bd, rd);
+		borrowers.saveBorrower();
     }
 
-	members.displayList();
+	borrowers.displayList();
 
-	cout << "\nSearch member ...\n";
+	cout << "\nSearch borrower ...\n";
 	cout << "enter member's ID: ";	cin.getline(id, 10);
-	members.displayMember(id);
-	members.searchByID(id);
-
-	cout << "enter member's Name: ";	cin.getline(n, 100);
-	members.searchByName(n);
+	borrowers.searchByID(id);
+	borrowers.displayBorrower(id);
     
     system("pause");
 }
