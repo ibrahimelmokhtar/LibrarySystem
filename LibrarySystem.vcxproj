@@ -143,16 +143,18 @@
     <ClCompile Include="cppFiles\BookList.cpp" />
     <ClCompile Include="cppFiles\Borrower.cpp" />
     <ClCompile Include="cppFiles\BorrowerList.cpp" />
+    <ClCompile Include="cppFiles\Library.cpp" />
     <ClCompile Include="cppFiles\Member.cpp" />
     <ClCompile Include="cppFiles\Date.cpp" />
     <ClCompile Include="cppFiles\MemberList.cpp" />
-    <ClCompile Include="LibrarySystem.cpp" />
+    <ClCompile Include="_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hFiles\Book.h" />
     <ClInclude Include="hFiles\BookList.h" />
     <ClInclude Include="hFiles\Borrower.h" />
     <ClInclude Include="hFiles\BorrowerList.h" />
+    <ClInclude Include="hFiles\Library.h" />
     <ClInclude Include="hFiles\Member.h" />
     <ClInclude Include="hFiles\Date.h" />
     <ClInclude Include="hFiles\MemberList.h" />
