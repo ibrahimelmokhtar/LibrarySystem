@@ -1,85 +1,38 @@
-#include <iostream>
-#include "hFiles/Date.h"
-#include "hFiles/Book.h"
-#include "hFiles/Member.h"
-#include "hFiles/Borrower.h"
-#include "hFiles/BookList.h"
-#include "hFiles/MemberList.h"
-#include "hFiles/BorrowerList.h"
+
+#include "hFiles/Library.h"
+
 
 using namespace std;
 
 int main()
 {
-	// display members from Members.bin:
-	cout << "Members: \n";
-	MemberList members;
-	members.displayList();
-	cout << "\n\n";
+	Library L;
 
-	// display books from Books.bin:
-	cout << "Books: \n";
-	BookList books;
-	books.displayList();
-	cout << "\n\n";
-
-
-	char id[10]; char isbn[16];
-	char n[100]; char a[100];
-	Date bd;	Date rd;
-
-	BorrowerList borrowers;
-
-	int numberOfBorrowers = 2;
-
-	cout << "Adding " << numberOfBorrowers << " different borrowers. then displaying ALL borrowers together.\n";
-
-	for (int i = 0; i < numberOfBorrowers; i++) {
-		cout << "enter member's name: ";	cin.getline(n, 100);
-		cout << "enter member's ID: ";	cin.getline(id, 10);
-		cout << "enter address: ";	cin.getline(a, 100);
-
-		// Check if that member's id already exists in Members.bin
-		if (!borrowers.checkID(id)) {
-			cout << "*** Invalid member!\n\n";
-			i--;
-			continue;
-		}
-
-		cout << "enter book's ISBN: ";		cin.getline(isbn, 16);
-
-		// Check if that book's isbn already exists in Books.bin
-		if (!borrowers.checkISBN(isbn)) {
-			cout << "*** Invalid book!\n\n";
-			i--;
-			continue;
-		}
-
-		// Check if the borrower id already exists
-		// As every borrower has only one book to borrow at a time.
-		if (i > 0 && borrowers.searchByID(id, false)) {
-			cout << "Borrower already exists!\n\n";
-			i--;
-			continue;
-		}
-		
-		// Continue adding that new borrower
-		cout << "enter borrowing date (dd/mm/yy): ";	cin >> bd;
-		cin.ignore();
-		cout << "enter return date (dd/mm/yy): ";		cin >> rd;
+	int choice;
+	while (true)
+	{
+		cout << "0.end the program  1.books  2.members  3.borrowers" << endl
+			<< "editing in: ";	cin >> choice;
 		cin.ignore();
 
-		cout << "Adding this borrower and Saving ...\n\n";
-		borrowers.addBorrower(id, n, a, isbn, bd, rd);
-		borrowers.saveBorrower();
-    }
-
-	borrowers.displayList();
-
-	cout << "\nSearch borrower ...\n";
-	cout << "enter member's ID: ";	cin.getline(id, 10);
-	borrowers.searchByID(id);
-	borrowers.displayBorrower(id);
-    
+		if (choice != 0)
+		{
+			switch (choice) {
+			case 1:
+				L.editBooks();	break;
+			case 2:
+				L.editMembers();	break;
+			case 3:
+				L.editBorrowers();	break;
+			default:
+				cout << "please enter a valid choice ...\n\n";
+			}
+		}
+		else {
+			cout << "\n\n";
+			cout << "Shutting down the program ... \n\n";
+			break;
+		}
+	}
     system("pause");
 }
